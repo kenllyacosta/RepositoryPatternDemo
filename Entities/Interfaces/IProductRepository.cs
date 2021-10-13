@@ -3,10 +3,11 @@ using System.Collections.Generic;
 
 namespace Entities.Interfaces
 {
-    public interface IProductRepository : IRepository<Product>
+    public interface IProductRepository
     {
         void SetDiscontinued(int id);
-        IEnumerable<Product> GetDiscontinuedProducts();
+        IEnumerable<Product> GetProductsBySpecification(Specifications.Specification<Product> specification);
         void AddToCategoryFromProductNames(Category category, IEnumerable<string> productNames);
+        IEnumerable<Product> GetAll();
     }
 }
